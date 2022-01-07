@@ -116,7 +116,7 @@ public class MainView {
                            case 8:
                                System.out.println("Nhập Vào ID");
                                int check3 = scanner.nextInt();
-                               Staff Id =  managerStaffFull.PayRoll(check3);
+                               String Id =  managerStaffFull.PayRoll(check3);
                                if (Id == null){
                                    System.err.println("ID KHÔNG TỒN TẠI");
                                }else {
@@ -145,6 +145,8 @@ public class MainView {
                                 managerStaffPart.addStaff();
                                 break;
                             case 2:
+                                System.out.printf("%-5S%-20S%-10S%-10S%-15S%-15S%-20S\n"
+                                        ,"ID","CÔNG VIỆC","TÊN","TUỔI","ĐỊA CHỈ","TRẠNG THÁI","GIỜ LÀM");
                                 managerStaffPart.displayAllStaff();
                                 break;
                             case 3:
@@ -189,8 +191,16 @@ public class MainView {
                     break;
                 case 3:
                     System.out.println();
+                    System.out.println("DANH SÁCH NHÂN VIÊN FULL TIME");
+                    System.out.println();
+                    System.out.printf("%-5S%-20S%-10S%-10S%-15S%-15S%-20S%-20S\n"
+                            ,"ID","CÔNG VIỆC","TÊN","TUỔI","ĐỊA CHỈ","TRẠNG THÁI","LƯƠNG CỨNG","GIỜ THÊM");
                     managerStaffFull.displayAllStaff();
                     System.out.println();
+                    System.out.println("DANH SÁCH NHÂN VIÊN PART TIME");
+                    System.out.println();
+                    System.out.printf("%-5S%-20S%-10S%-10S%-15S%-15S%-20S\n"
+                            ,"ID","CÔNG VIỆC","TÊN","TUỔI","ĐỊA CHỈ","TRẠNG THÁI","GIỜ LÀM");
                     managerStaffPart.displayAllStaff();
                     System.out.println();
                     break;

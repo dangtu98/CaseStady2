@@ -66,7 +66,6 @@ public class ManagerStaffFull implements Manager {
         String idCheck = scanner.nextLine();
         if (validateId(idCheck)){
             int id = Integer.parseInt(idCheck);
-//            scanner.nextLine();
             System.out.println("Nhập Kiểu NV: ");
             String type = scanner.nextLine();
             System.out.println("Nhập Tên NV: ");
@@ -90,6 +89,7 @@ public class ManagerStaffFull implements Manager {
             }else {
                 System.out.println("Lỗi Nhập Dữ liệu Tuổi!!!");
             }
+            System.out.println("THÊM NHÂN VIÊN THÀNH CÔNG !");
         }
 
 
@@ -106,6 +106,7 @@ public class ManagerStaffFull implements Manager {
         int index = staffFull.indexOf(fullTime);
         fullTime = staffFull.remove(index);
         writeToFile();
+        System.out.println("ĐÃ XÓA !!");
         return fullTime;
     }
 
@@ -145,6 +146,7 @@ public class ManagerStaffFull implements Manager {
            }else {
                System.out.println("Lỗi Nhập Dữ liệu Tuổi!!!");
            }
+           System.out.println("ĐÃ SỬA THÀNH CÔNG !");
        }
        return fullTime;
     }
@@ -187,15 +189,16 @@ public class ManagerStaffFull implements Manager {
         return fullTimes;
     }
 
-    public Staff PayRoll(int id){
+    public String PayRoll(int id){
+        String pay = "";
         StaffFullTime stf = null;
         for (StaffFullTime s : staffFull){
             if (s.getId() == id){
                 stf = s;
-                System.out.println("Lương của Nhân Viên " + stf.getName() + " là " + stf.getPayRoll() + " $ " );
+                pay = "LƯƠNG CỦA " + s.getName() + " LÀ: " + " " + stf.getPayRoll() + " $ " ;
             }
         }
-        return stf;
+        return pay;
     }
 
     public void writeToFile(){

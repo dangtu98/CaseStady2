@@ -28,8 +28,8 @@ public class StaffPartTime extends Staff implements Serializable {
 
     @Override
     public String toString() {
-        return "StaffPartTime : " + super.toString() +
-                "TimeWork : " + TimeWork
-                ;
+        return (String.format("%-5d%-20s%-10s%-10d%-15s%-15s%-20.2f\n"
+                ,getId(),getType(),getName(),getAge(),getAddress(),getStatus(),getTimeWork()));
     }
+
 }
